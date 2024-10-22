@@ -35,7 +35,8 @@ public class RegistrationServicesImpl implements IRegistrationService{
     }
 
     @Override
-    public void removeRegistration(Long numRegistration) {
+    public Registration removeRegistration(Long numRegistration) {
 
+      return null;
     }
 }

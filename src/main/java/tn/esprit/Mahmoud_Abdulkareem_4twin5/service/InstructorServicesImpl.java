@@ -34,7 +34,8 @@ public class InstructorServicesImpl implements IInstructorService{
     }
 
     @Override
-    public void removeInstructor(Long numInstructor) {
+    public Instructor removeInstructor(Long numInstructor) {
 
+      return null;
     }
 }

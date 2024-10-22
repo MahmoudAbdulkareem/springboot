@@ -9,5 +9,5 @@ public interface ISubscriptionService {
     Subscription updateSubscription(Subscription subscription);
     Subscription retriveSubscription(Long subscription);
     List<Subscription> retriveAll();
-    void removeSubscription(Long numSubscription);
+    Subscription removeSubscription(Long numSubscription);
 }

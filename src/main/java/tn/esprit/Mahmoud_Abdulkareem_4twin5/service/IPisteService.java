@@ -10,4 +10,5 @@ public interface IPisteService {
     Piste retrivePiste(Long numPiste);
     List<Piste> retriveAll();
     void removePiste(Long numPiste);
+
 }

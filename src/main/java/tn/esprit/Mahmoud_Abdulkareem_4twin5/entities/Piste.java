@@ -19,8 +19,7 @@ public class Piste implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    private int idPiste;
-    private long numPiste;
+    private int numPiste;
     private String namePiste;
     @Enumerated(EnumType.STRING)
     private Color color;

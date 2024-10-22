@@ -15,8 +15,17 @@ public class CourseRestController {
     public Course saveCourse(@RequestBody Course course){
         return courseServices.addCourse(course);
     }
+  @PutMapping("/update")
+    public Course updateCourse(@RequestBody Course course){
+    return courseServices.updateCourse(course);
+  }
 
-    @GetMapping("/get/{numCourse}")
+  @DeleteMapping("/delete/{numCourse}")
+  public void removeCours(@PathVariable Long numCourse) {
+    courseServices.removeCours(numCourse);
+  }
+
+  @GetMapping("/get/{numCourse}")
     public Course getCourse(@PathVariable Long numCourse){
         return courseServices.retriveCourse(numCourse);
 

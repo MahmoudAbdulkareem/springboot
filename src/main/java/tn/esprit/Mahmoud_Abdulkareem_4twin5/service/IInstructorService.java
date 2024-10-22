@@ -9,5 +9,5 @@ public interface IInstructorService {
     Instructor updateInstructor(Instructor instructor);
     Instructor retriveInstructor(Long numInstructor);
     List<Instructor> retriveAll();
-    void removeInstructor(Long numInstructor);
+    Instructor removeInstructor(Long numInstructor);
 }

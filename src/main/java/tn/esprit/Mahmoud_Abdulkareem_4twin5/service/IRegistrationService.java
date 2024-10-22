@@ -9,5 +9,5 @@ public interface IRegistrationService {
     Registration updateRegistration(Registration registration);
     Registration retriveRegistration(Long numRegistration);
     List<Registration> retriveAll();
-    void removeRegistration(Long numRegistration);
+    Registration removeRegistration(Long numRegistration);
 }
