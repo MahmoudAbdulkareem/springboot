@@ -1,33 +1,34 @@
-package tn.esprit.Mahmoud_Abdulkareem_4twin5.controllers;
+package tn.esprit.mahmoud_abdulkareem_4TWIN5.controllers;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.RestController;
+import tn.esprit.mahmoud_abdulkareem_4TWIN5.entities.Course;
+import tn.esprit.mahmoud_abdulkareem_4TWIN5.services.ICourseServices;
 import org.springframework.web.bind.annotation.*;
-import tn.esprit.Mahmoud_Abdulkareem_4twin5.entities.Course;
-import tn.esprit.Mahmoud_Abdulkareem_4twin5.service.ICourseService;
 
-
+@Tag(name = "Gestion Course")
 @RequiredArgsConstructor
-@RequestMapping("Course")
+@RequestMapping("course")
 @RestController
 public class CourseRestController {
-    private final ICourseService courseServices;
+    private final ICourseServices courseServices;
+    private Long numCourse;
+    @Operation(description = "sauvegarder Course")
     @PostMapping("/add")
-    public Course saveCourse(@RequestBody Course course){
+    public Course saveCourse(Course course){
         return courseServices.addCourse(course);
     }
-  @PutMapping("/update")
+    @Operation(description = "mise a jour")
+    @PutMapping("/update")
     public Course updateCourse(@RequestBody Course course){
-    return courseServices.updateCourse(course);
-  }
-
-  @DeleteMapping("/delete/{numCourse}")
-  public void removeCours(@PathVariable Long numCourse) {
-    courseServices.removeCours(numCourse);
-  }
-
-  @GetMapping("/get/{numCourse}")
+        return courseServices.updateCourse(course);
+    }
+    @Operation(description = "récupérer course avec numCourse")
+    @GetMapping("/get/{numCourse}")
     public Course getCourse(@PathVariable Long numCourse){
-        return courseServices.retriveCourse(numCourse);
 
+        return courseServices.retrieveCourse(numCourse);
     }
 }

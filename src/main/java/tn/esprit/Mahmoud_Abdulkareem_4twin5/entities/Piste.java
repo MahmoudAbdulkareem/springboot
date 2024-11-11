@@ -1,31 +1,27 @@
-package tn.esprit.Mahmoud_Abdulkareem_4twin5.entities;
+package tn.esprit.mahmoud_abdulkareem_4TWIN5.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
-import java.awt.*;
 import java.io.Serializable;
 import java.util.Set;
-
-@Getter   //lambook
+@Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level= AccessLevel.PRIVATE)
 @Entity
-@Table(name = "t_piste")
 public class Piste implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
-    private int numPiste;
-    private String namePiste;
+    Long numPiste;
+    String namePiste;
     @Enumerated(EnumType.STRING)
-    private Color color;
-    private int length;
-    private int slope;
-
+    Color color;
+    int length;
+    int slope;
     @ManyToMany
-    Set<Skier> skiers;
+    Set<Skier>skiers;
+
 }

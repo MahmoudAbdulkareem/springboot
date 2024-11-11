@@ -1,10 +1,10 @@
-package tn.esprit.Mahmoud_Abdulkareem_4twin5;
+package tn.esprit.ouday_oueslati_4TWIN5;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class MahmoudAbdulkareem4twin5ApplicationTests {
+class OudayOueslatiApplicationTests {
 
     @Test
     void contextLoads() {

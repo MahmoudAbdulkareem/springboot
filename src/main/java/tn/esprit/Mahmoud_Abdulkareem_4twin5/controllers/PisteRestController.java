@@ -1,36 +1,34 @@
-package tn.esprit.Mahmoud_Abdulkareem_4twin5.controllers;
+package tn.esprit.mahmoud_abdulkareem_4TWIN5.controllers;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import tn.esprit.mahmoud_abdulkareem_4TWIN5.entities.Piste;
+import tn.esprit.mahmoud_abdulkareem_4TWIN5.repositries.IPisteRepository;
+import tn.esprit.mahmoud_abdulkareem_4TWIN5.services.IPisteServices;
 import org.springframework.web.bind.annotation.*;
-import tn.esprit.Mahmoud_Abdulkareem_4twin5.entities.Course;
-import tn.esprit.Mahmoud_Abdulkareem_4twin5.entities.Instructor;
-import tn.esprit.Mahmoud_Abdulkareem_4twin5.entities.Piste;
-import tn.esprit.Mahmoud_Abdulkareem_4twin5.service.IPisteService;
-
-
+@Tag(name = "Gestion Piste")
 @RequiredArgsConstructor
-@RequestMapping("Piste")
+@RequestMapping("/piste")
 @RestController
 public class PisteRestController {
-    private final IPisteService pisteServices;
+    private final IPisteServices pisteServices;
+    @Getter
+    private final IPisteRepository Piste;
+    @Operation(description = "enregistrer Piste")
     @PostMapping("/add")
-    public Piste savePiste(@RequestBody Piste piste){
+    public Piste savePiste(Piste piste){
         return pisteServices.addPiste(piste);
     }
-
-  @PutMapping("/update")
-  public Piste updatePiste(@RequestBody Piste piste){
-    return pisteServices.updatePiste(piste);
-  }
-
-  @DeleteMapping("/delete/{numPiste}")
-  public void removePiste(@PathVariable Long numPiste) {
-    pisteServices.removePiste(numPiste);
-  }
-
-  @GetMapping("/get/{numPiste}")
+    @Operation(description = "mise a jour Piste")
+    @PutMapping("/update")
+    public Piste updatePiste(@RequestBody Piste piste){
+        return pisteServices.updatePiste(piste);
+    }
+    @Operation(description = "récupérer Piste avec numPiste")
+    @GetMapping("/get/{numPiste}")
     public Piste getPiste(@PathVariable Long numPiste){
-        return pisteServices.retrivePiste(numPiste);
-
+        return pisteServices.retrievePiste(numPiste);
     }
 }

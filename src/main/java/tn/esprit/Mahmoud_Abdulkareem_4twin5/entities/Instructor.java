@@ -1,4 +1,4 @@
-package tn.esprit.Mahmoud_Abdulkareem_4twin5.entities;
+package tn.esprit.mahmoud_abdulkareem_4TWIN5.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -7,26 +7,18 @@ import lombok.experimental.FieldDefaults;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Set;
-
-@Getter   //lambook
+@Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level= AccessLevel.PRIVATE)
 @Entity
-@Table(name = "t_instructor")
-public class Instructor implements Serializable  {
+public class Instructor implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idInstructor;
-    private Long numInstructor;
-    private String firstName;
-    private String lastName;
-    private LocalDate dateOfHire;
-
-    //generation d'une table hounni
+    Long numInstructor;
+    String name;
+    LocalDate dateOfHire;
     @OneToMany
     Set<Course> courses;
-
-
 }

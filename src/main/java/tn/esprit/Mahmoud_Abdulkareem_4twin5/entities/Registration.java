@@ -1,28 +1,25 @@
-package tn.esprit.Mahmoud_Abdulkareem_4twin5.entities;
+package tn.esprit.mahmoud_abdulkareem_4TWIN5.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import java.io.Serializable;
-
-@Getter   //lambook
+@Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level= AccessLevel.PRIVATE)
 @Entity
-@Table(name = "t_registration")
-public class Registration implements Serializable  {
+public class Registration implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idRegistration;
-    private Long numRegistration;
-     int numWeek;
-
-    @ManyToOne      //migration d'une cle win tsir l visibilité (registaration tal9a l foreign key mte3 skier)
+    Long numRegistration ;
+    int numWeek;
+    @JsonIgnore
+    @ManyToOne
     Skier skier;
-
     @ManyToOne
     Course course;
 }

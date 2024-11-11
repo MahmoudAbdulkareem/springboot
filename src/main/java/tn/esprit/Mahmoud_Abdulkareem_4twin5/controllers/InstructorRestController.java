@@ -1,32 +1,39 @@
-package tn.esprit.Mahmoud_Abdulkareem_4twin5.controllers;
+package tn.esprit.mahmoud_abdulkareem_4TWIN5.controllers;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.RestController;
+import tn.esprit.mahmoud_abdulkareem_4TWIN5.entities.Instructor;
+import tn.esprit.mahmoud_abdulkareem_4TWIN5.services.IInstructorServices;
 import org.springframework.web.bind.annotation.*;
-import tn.esprit.Mahmoud_Abdulkareem_4twin5.entities.Course;
-import tn.esprit.Mahmoud_Abdulkareem_4twin5.entities.Instructor;
-import tn.esprit.Mahmoud_Abdulkareem_4twin5.service.IInstructorService;
 
+@Tag(name = "Gestion Instructor")
 @RequiredArgsConstructor
-@RequestMapping("Instructor")
+@RequestMapping("instructor")
 @RestController
 public class InstructorRestController {
-    private final IInstructorService instructorServices;
+
+    private final IInstructorServices instructorServices;
+    @Operation(description = "enregistrer instructeur")
     @PostMapping("/add")
-    public Instructor saveInstructor(@RequestBody Instructor instructor){
+    public Instructor saveInstructor(@RequestBody  Instructor instructor){
         return instructorServices.addInstructor(instructor);
     }
-  @PutMapping("/update")
-  public Instructor updateInstructor(@RequestBody Instructor instructor){
-    return instructorServices.updateInstructor(instructor);
-  }
-  @DeleteMapping("/delete/{numInstructor}")
-  public Instructor removeInstructor(@PathVariable long numInstructor) {
-    return instructorServices.removeInstructor(numInstructor);
-  }
+    @Operation(description = "mise a jour instructeur")
+    @PutMapping("/update")
+    public Instructor updateInstructor(@RequestBody Instructor instructor){
+        return instructorServices.updateInstructor(instructor);
+    }
+    @Operation(description = "suppression instructeur")
+    @DeleteMapping ("/delete/{numInstructor}")
+    public Instructor removeInstructor(@PathVariable Long numInstructor){
+        return instructorServices.removeInstructor(numInstructor);
+    }
+    @Operation(description = "récupérer instructeur avec numInstructor")
+    @GetMapping("/get/{numInstructor}")
+    public Instructor getPInstructor(@PathVariable Long numInstructor){
 
-  @GetMapping("/get/{numInstructor}")
-    public Instructor getInstructor(@PathVariable Long numInstructor){
-        return instructorServices.retriveInstructor(numInstructor);
-
+        return instructorServices.retrieveInstructor(numInstructor);
     }
 }

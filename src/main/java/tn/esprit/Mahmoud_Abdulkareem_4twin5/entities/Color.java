@@ -1,8 +1,8 @@
-package tn.esprit.Mahmoud_Abdulkareem_4twin5.entities;
-
-import jakarta.persistence.*;
+package tn.esprit.mahmoud_abdulkareem_4TWIN5.entities;
 
 public enum Color {
-            GREEN, BLUE, RED, BLACK
-
-    }
+    GREEN ,
+    BLEU,
+    RED ,
+    BLACK
+}
